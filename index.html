@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Monster | Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="nav-minimal">
+        <div class="logo-text">DIGITAL MONSTER</div>
+        <div class="nav-right">
+            <div class="links">
+                <a href="#projects" data-key="nav_work">PROYECTOS</a>
+            </div>
+            <div class="lang-switcher">
+                <button onclick="changeLang('es')" id="btn-es" class="active">ES</button>
+                <button onclick="changeLang('en')" id="btn-en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-split">
+        <div class="hero-main">
+            <img src="assets/dm_svg/dm_normal.svg" class="glitch-logo" alt="Digital Monster">
+            <h1 class="main-title">
+                <span data-key="hero_1">CREAMOS</span> <br> 
+                <span class="outline" data-key="hero_2">MONSTRUOS</span>
+            </h1>
+        </div>
+    </section>
+
+    <section id="projects" class="work-section">
+        <div class="work-item">
+            <div class="work-info">
+                <span class="work-num">01</span>
+                <span class="work-cat" data-key="cat_webcomic">WEBCOMIC</span>
+                <h2 class="work-title">FIRELIGHTS</h2>
+                <p data-key="fire_desc">Una travesía a través de la fantasía y ciencia ficción.</p>
+            </div>
+            <div class="work-preview">
+                <img src="assets/Firelights/logo.svg" alt="Firelights" class="floating-art">
+                <div class="work-status" data-key="status_soon">PRÓXIMAMENTE</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="glitch-footer">
+        <div class="social-links">
+            <a href="#"><img src="assets/rrss/Instagram_White.svg"></a>
+            <a href="#"><img src="assets/rrss/Twitter_White.svg"></a>
+            <a href="#"><img src="assets/rrss/Blusky_White.svg"></a>
+            <a href="#"><img src="assets/rrss/Whatsapp_White.svg"></a>
+        </div>
+        <p>© 2025 DIGITAL MONSTER — <span data-key="footer_text">ESTUDIO CREATIVO</span></p>
+    </footer>
+
+    <script src="lang.js"></script>
+</body>
+</html>
