@@ -1,0 +1,7 @@
+---
+# Plan B sin GitHub Actions: cPanel → Git Version Control → "Update from Remote" y luego "Deploy HEAD Commit".
+# Copia el contenido de sitio/ a public_html (no borra lo que ya esté allá).
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp -R sitio/. $DEPLOYPATH
