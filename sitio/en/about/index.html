@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Digital Monster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dm-purple-main: #8a2be2;
+            --dm-purple-glow: #bc13fe;
+            --dm-dark-bg: #0a0a0c;
+            --dm-card-bg: #141418;
+            --dm-text: #e0e0e0;
+            --dm-border: #2a2a30;
+            --accent: #8a2be2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dm-dark-bg);
+            color: var(--dm-text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .nav-minimal {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        
+        .logo-text { 
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900; 
+            letter-spacing: 2px; 
+            font-size: 1.1rem;
+            color: white;
+        }
+        
+        .links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            margin-left: 25px;
+            transition: 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .links a:hover {
+            color: var(--dm-purple-glow);
+            text-shadow: 0 0 8px var(--dm-purple-main);
+        }
+
+        /* --- CONTENEDOR --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 160px 20px 80px;
+            text-align: center;
+        }
+
+        .header-section { margin-bottom: 60px; }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin: 0;
+            text-shadow: 0 0 20px var(--dm-purple-main);
+        }
+
+        .section-subtitle {
+            font-weight: 300;
+            opacity: 0.6;
+            max-width: 600px;
+            margin: 15px auto 0;
+            line-height: 1.6;
+        }
+
+        /* --- GRID --- */
+        .founders-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .founder-card {
+            background: var(--dm-card-bg);
+            border: 2px solid var(--dm-border);
+            width: 320px;
+            position: relative;
+            transition: 0.4s ease;
+            clip-path: polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .founder-card:hover {
+            border-color: var(--dm-purple-glow);
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.15);
+        }
+
+        .image-box {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.5s ease;
+        }
+
+        .image-box::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to bottom, transparent, var(--dm-card-bg));
+        }
+
+        .info-box {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .role-tag {
+            font-size: 0.65rem;
+            color: var(--dm-purple-glow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 5px 0 15px;
+            color: white;
+        }
+
+        .bio-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin-bottom: 25px;
+            min-height: 80px;
+        }
+
+        .btn-social {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--dm-purple-main);
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            transition: 0.3s;
+        }
+
+        .btn-social:hover {
+            background: var(--dm-purple-main);
+            box-shadow: 0 0 15px var(--dm-purple-glow);
+        }
+
+        .unit-id {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 8px;
+            color: var(--dm-purple-main);
+            z-index: 10;
+        }
+
+        /* --- FOOTER (CON FIX PARA ICONOS) --- */
+        .glitch-footer {
+            padding: 80px 20px;
+            text-align: center;
+            background: #050505;
+            border-top: 1px solid #111;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            transition: 0.3s;
+            /* FIX: Esto fuerza a que cualquier color de SVG se vuelva blanco puro */
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+        }
+        
+        .social-links a:hover img {
+            opacity: 1;
+            transform: translateY(-5px);
+            /* Efecto neón púrpura al pasar el mouse */
+            filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--dm-purple-glow));
+        }
+        
+        .glitch-footer p {
+            font-size: 0.65rem;
+            color: #444;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-minimal">
+        <div class="logo-text">DIGITAL MONSTER</div>
+        <div class="nav-right">
+            <div class="links">
+                <a href="/en/#projects">PROJECTS</a>
+                <a href="/en/about">ABOOUT</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header class="header-section">
+            <h1 class="section-title">ABOUT</h1>
+            <p class="section-subtitle">
+                World architects at <strong>Digital Monster</strong>. We fuse art and code to create memorable experiencies.
+            </p>
+        </header>
+
+        <main class="founders-grid">
+            <article class="founder-card">
+                <span class="unit-id">DM-CORE-01</span>
+                <div class="image-box"><img src="hardy.webp" alt="Skynook"></div>
+                <div class="info-box">
+                    <span class="role-tag">Cofundator | Hardy</span>
+                    <h3>Skynook</h3>
+                    <p class="bio-text">Art director of Digital Monster. Co-creator of Firelights. Student of Digital Animator on Santo Tomás.</p>
+                    <a href="https://skynookhub.github.io/social-media/" class="btn-social">
+                        <span>social media</span><span>→</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="founder-card">
+                <span class="unit-id">DM-CORE-02</span>
+                <div class="image-box"><img src="tomas.jpg" alt="Teoc"></div>
+                <div class="info-box">
+                    <span class="role-tag">Cofundator | Tomás</span>
+                    <h3>Teoc</h3>
+                    <p class="bio-text">Director of experiencies. Co-creator of Firelights. Student of Pedagogy of Primary on the U. Autónoma.</p>
+                    <a href="social-tomas.html" class="btn-social">
+                        <span>social media</span><span>→</span>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="founder-card">
+                <span class="unit-id">DM-UNIT-03</span>
+                <div class="image-box"><img src="martin.jpg" alt="Manolo"></div>
+                <div class="info-box">
+                    <span class="role-tag">Artista | Martín</span>
+                    <h3>Manolo</h3>
+                    <p class="bio-text">Artista chileno buscando su propio estilo. Inspiración estética en Pinterest y narrativa en Evangelion.</p>
+                    <a href="social-martin.html" class="btn-social">
+                        <span>social media</span><span>→</span>
+                    </a>
+                </div>
+            </article>
+        </main>
+    </div>
+    
+    <footer class="glitch-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/digimonsterslab/"><img src="/assets/rrss/Instagram_White.svg"></a>
+            <a href="https://x.com/DigiMonstersLab"><img src="/assets/rrss/Twitter_White.svg"></a>
+            <a href="https://bsky.app/profile/digimonsterslab.bsky.social"><img src="/assets/rrss/Blusky_White.svg"></a>
+            <a href="https://www.whatsapp.com/channel/0029VayEK3GGufItEz7sJK16"><img src="/assets/rrss/Whatsapp_White.svg"></a>
+        </div>
+        <p>© 2026 DIGITAL MONSTER — CREATIVE STUDIO</p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Publica la carpeta sitio/ en digitalmonster.cl (HostGator) por FTPS cada vez que cambia en main.
+# Solo sube lo que cambió y solo borra en el servidor lo que este mismo flujo subió antes
+# (lleva la cuenta en .ftp-deploy-sync-state.json, en el servidor).
+name: Publicar en digitalmonster.cl
+on:
+  push:
+    branches: [main]
+    paths: ["sitio/**"]
+  workflow_dispatch:
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Mientras no estén los tres secretos, el flujo termina en verde sin publicar nada.
+      - name: Revisar secretos
+        id: listo
+        env:
+          S: ${{ secrets.FTP_SERVIDOR }}
+          U: ${{ secrets.FTP_USUARIO }}
+          C: ${{ secrets.FTP_CLAVE }}
+        run: |
+          if [ -n "$S" ] && [ -n "$U" ] && [ -n "$C" ]; then echo "si=true" >> "$GITHUB_OUTPUT"
+          else echo "::notice::Faltan los secretos FTP_SERVIDOR, FTP_USUARIO o FTP_CLAVE: no se publicó nada."; fi
+      - name: Subir a HostGator
+        if: steps.listo.outputs.si == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVIDOR }}
+          username: ${{ secrets.FTP_USUARIO }}
+          password: ${{ secrets.FTP_CLAVE }}
+          protocol: ftps
+          local-dir: ./sitio/
+          server-dir: ./

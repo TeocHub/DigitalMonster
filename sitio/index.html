@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redireccionando...</title>
+    <script type="text/javascript">
+        // Obtenemos el idioma del navegador (ej: "es-ES" o "en-US")
+        var userLang = navigator.language || navigator.userLanguage; 
+        
+        // Verificamos si el idioma empieza por "es"
+        if (userLang.startsWith('es')) {
+            window.location.href = "/es/";
+        } else {
+            // Si no es español, enviamos a la carpeta de inglés por defecto
+            window.location.href = "/en/";
+        }
+    </script>
+</head>
+<body>
+    <!-- Mensaje opcional en caso de que JS esté desactivado -->
+    <p>Redireccionando... / Redirecting...</p>
+    <p>
+        <a href="./es/">Español</a> | 
+        <a href="./en/">English</a>
+    </p>
+</body>
+</html>
