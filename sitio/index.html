@@ -1,26 +1,223 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="es">
 <head>
-    <title>Redireccionando...</title>
-    <script type="text/javascript">
-        // Obtenemos el idioma del navegador (ej: "es-ES" o "en-US")
-        var userLang = navigator.language || navigator.userLanguage; 
-        
-        // Verificamos si el idioma empieza por "es"
-        if (userLang.startsWith('es')) {
-            window.location.href = "/es/";
-        } else {
-            // Si no es español, enviamos a la carpeta de inglés por defecto
-            window.location.href = "/en/";
-        }
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Monster · Estudio de producción</title>
+<meta name="description" content="Estudio de producción chileno. Desarrollamos mundos propios y los llevamos a videojuegos, cómics, novelas, juegos de mesa, animación y merch.">
+<meta property="og:title" content="Digital Monster">
+<meta property="og:description" content="Estudio de producción chileno: videojuegos, cómics, novelas, juegos de mesa, animación y merch.">
+<meta property="og:image" content="https://digitalmonster.cl/assets/dm_svg/dm_normal.svg">
+<meta name="theme-color" content="#0e0c11">
+<link rel="icon" type="image/svg+xml" href="/assets/dm_svg/dm_normal.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/sitio.css?v=2">
 </head>
 <body>
-    <!-- Mensaje opcional en caso de que JS esté desactivado -->
-    <p>Redireccionando... / Redirecting...</p>
+<div class="page">
+
+<header class="top">
+ <div class="wrap top-row">
+  <a class="brand" href="#inicio" data-view="inicio">
+   <img src="/assets/dm_svg/dm_normal.svg" alt="" width="40" height="40">
+   <span>Digital Monster</span>
+  </a>
+  <nav class="tabs" data-i18n-aria="nav_aria" aria-label="Secciones">
+   <a class="tab" href="#inicio" data-view="inicio" data-i18n="nav_inicio">Inicio</a>
+   <a class="tab" href="#proyectos" data-view="proyectos" data-i18n="nav_proyectos">Proyectos</a>
+   <a class="tab" href="#formatos" data-view="formatos" data-i18n="nav_formatos">Formatos</a>
+   <a class="tab" href="#estudio" data-view="estudio" data-i18n="nav_estudio">Estudio</a>
+   <a class="tab" href="#contacto" data-view="contacto" data-i18n="nav_contacto">Contacto</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Idioma / Language">
+   <button type="button" data-lang="es" lang="es">ES</button>
+   <button type="button" data-lang="en" lang="en">EN</button>
+  </div>
+ </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="view halftone" id="v-inicio" data-name="inicio">
+ <div class="wrap hero">
+  <div class="hero-text">
+   <p class="eyebrow" data-i18n="hero_eyebrow">Estudio de producción · Santiago de Chile</p>
+   <h1 class="hero-title">
+    <span data-i18n="hero_1">Creamos</span>
+    <span class="misprint"><span class="misprint-b" aria-hidden="true" data-i18n="hero_2">Monstruos</span><span class="misprint-a" data-i18n="hero_2">Monstruos</span></span>
+   </h1>
+   <p class="lead" data-i18n="hero_lead">Desarrollamos mundos propios y los llevamos al formato que pidan: videojuegos, cómics, novelas, juegos de mesa, animación y merch.</p>
+   <div class="actions">
+    <a class="btn btn-pink" href="#proyectos" data-view="proyectos" data-i18n="hero_cta1">Ver proyectos</a>
+    <a class="btn btn-line" href="#contacto" data-view="contacto" data-motive="proyecto" data-i18n="hero_cta2">Presenta tu proyecto</a>
+   </div>
+  </div>
+  <img class="hero-logo" src="/assets/dm_svg/dm_normal.svg" data-i18n-alt="logo_alt" alt="Máscara de Digital Monster" width="420" height="420">
+ </div>
+ <div class="slate-band">
+  <dl class="wrap slate">
+   <div><dt data-i18n="slate_prod">Prod.</dt><dd>Digital Monster</dd></div>
+   <div><dt data-i18n="slate_base">Base</dt><dd data-i18n="slate_base_v">Santiago, Chile</dd></div>
+   <div><dt data-i18n="slate_proj">Proyectos</dt><dd id="slate-count">02</dd></div>
+   <div><dt data-i18n="slate_fmt">Formatos</dt><dd data-i18n="slate_fmt_v">7 frentes</dd></div>
+  </dl>
+ </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="view" id="v-proyectos" data-name="proyectos" hidden>
+ <div class="wrap block">
+  <div class="folders" role="tablist" data-i18n-aria="proj_aria" aria-label="Proyectos" id="proj-tabs"></div>
+  <article class="ficha" role="tabpanel" id="proj-panel">
+   <div class="ficha-art" id="proj-art"></div>
+   <div class="ficha-body">
+    <h2 class="display-l" id="proj-name"></h2>
+    <p class="lead" id="proj-pitch"></p>
+    <dl class="specs">
+     <div><dt data-i18n="spec_format">Formato</dt><dd id="proj-format"></dd></div>
+     <div><dt data-i18n="spec_status">Estado</dt><dd id="proj-status"></dd></div>
+     <div><dt data-i18n="spec_genre">Género</dt><dd id="proj-genre"></dd></div>
+     <div><dt data-i18n="spec_crew">Creación</dt><dd id="proj-crew"></dd></div>
+    </dl>
+    <a class="link-u" href="https://www.instagram.com/digimonsterslab/" target="_blank" rel="noopener" data-i18n="proj_follow">Seguir sus avances en Instagram →</a>
+   </div>
+  </article>
+ </div>
+</section>
+
+<!-- FORMATOS -->
+<section class="view paper" id="v-formatos" data-name="formatos" hidden>
+ <div class="wrap block">
+  <div class="head-row">
+   <h2 class="display-xl" data-i18n-html="fmt_title">Un mundo,<br>siete formatos</h2>
+   <p class="muted-ink" data-i18n="fmt_intro">Las ideas no nacen con formato. Elige uno para ver cómo lo trabajamos.</p>
+  </div>
+  <div class="stickers" id="stickers"></div>
+  <div class="fmt-detail">
+   <div><span class="eyebrow ink-violet" data-i18n="fmt_label">Formato</span><span class="display-m" id="fmt-name"></span></div>
+   <p class="lead-ink" id="fmt-what"></p>
+   <div><span class="eyebrow ink-violet" data-i18n="fmt_ours">Nuestros proyectos</span><span class="mono-16" id="fmt-ours"></span></div>
+  </div>
+ </div>
+</section>
+
+<!-- ESTUDIO -->
+<section class="view" id="v-estudio" data-name="estudio" hidden>
+ <div class="wrap block credits-grid">
+  <div class="credits-col">
+   <h2 class="display-xl" data-i18n="crew_title">Créditos</h2>
+   <p class="muted" data-i18n="crew_intro">Un estudio chico, como los que admiramos. Cada persona firma lo que hace.</p>
+   <div class="credits" id="credits"></div>
+  </div>
+  <figure class="portrait">
+   <div class="portrait-frame">
+    <img id="who-photo" src="/assets/equipo/hardy.webp" alt="" width="640" height="800">
+    <span class="unit" id="who-unit">DM-CORE-01</span>
+   </div>
+   <figcaption>
+    <span class="who-name"><span id="who-name">Skynook</span> <span class="who-real">· <span id="who-real">Hardy</span></span></span>
+    <span class="muted" id="who-bio"></span>
+   </figcaption>
+  </figure>
+ </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="view halftone" id="v-contacto" data-name="contacto" hidden>
+ <div class="wrap block">
+  <div class="head-row">
+   <h2 class="display-xl" data-i18n="ct_title">¿Tienes un monstruo suelto?</h2>
+   <p class="muted" data-i18n="ct_intro">Escríbenos como le escribirías a alguien. Solo necesitamos tu nombre, un correo válido para responderte y lo que quieras contarnos; lo demás es opcional.</p>
+  </div>
+
+  <div class="letter-grid">
+   <form class="letter" id="letter" action="/contacto.php" method="post" novalidate>
     <p>
-        <a href="./es/">Español</a> | 
-        <a href="./en/">English</a>
+     <span data-i18n="l_hello">Hola, Digital Monster. Me llamo</span>
+     <label class="sr" for="c-nombre" data-i18n="l_name_lbl">Tu nombre</label><input class="blank w9" id="c-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" data-i18n-ph="l_name_ph" placeholder="tu nombre">
+     <span data-i18n="l_because">y les escribo porque</span>
+     <label class="sr" for="c-motivo" data-i18n="l_motive_lbl">Motivo</label><select class="blank" id="c-motivo" name="motivo"></select>.
     </p>
+
+    <p id="project-lines">
+     <span data-i18n="l_called">Se llama</span>
+     <label class="sr" for="c-titulo" data-i18n="l_title_lbl">Nombre del proyecto</label><input class="blank w10" id="c-titulo" name="titulo" type="text" maxlength="120" data-i18n-ph="l_title_ph" placeholder="nombre del proyecto">,
+     <span data-i18n="l_is">es</span>
+     <label class="sr" for="c-formato" data-i18n="l_format_lbl">Formato</label><select class="blank" id="c-formato" name="formato"></select>
+     <span data-i18n="l_now">que hoy está</span>
+     <label class="sr" for="c-estado" data-i18n="l_stage_lbl">Estado</label><select class="blank" id="c-estado" name="estado"></select>,
+     <span data-i18n="l_want">y me gustaría que</span>
+     <label class="sr" for="c-ayuda" data-i18n="l_help_lbl">Qué buscas</label><select class="blank" id="c-ayuda" name="ayuda"></select>.
+     <span data-i18n="l_see">Pueden ver algo en</span>
+     <label class="sr" for="c-enlace" data-i18n="l_link_lbl">Enlace a una muestra</label><input class="blank w11" id="c-enlace" name="enlace" type="url" maxlength="300" data-i18n-ph="l_link_ph" placeholder="un enlace, si tienes">.
+    </p>
+
+    <div class="field">
+     <label for="c-mensaje" class="eyebrow" data-i18n="l_body_lbl">Lo demás, con tus palabras</label>
+     <textarea id="c-mensaje" name="mensaje" rows="6" maxlength="5000" data-i18n-ph="l_body_ph" placeholder="De dónde viene la idea, quiénes están detrás, qué te imaginas, o simplemente un saludo."></textarea>
+    </div>
+
+    <p>
+     <span data-i18n="l_reply">Pueden responderme a</span>
+     <label class="sr" for="c-correo" data-i18n="l_email_lbl">Tu correo</label><input class="blank w11" id="c-correo" name="correo" type="email" autocomplete="email" required maxlength="160" placeholder="tu@correo.cl">.
+    </p>
+
+    <div class="hp" aria-hidden="true">
+     <label for="c-web">No completar</label><input id="c-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+    </div>
+    <input type="hidden" name="t" id="c-t" value="">
+    <input type="hidden" name="idioma" id="c-lang" value="es">
+
+    <div class="send-row">
+     <button class="btn btn-pink" type="submit" id="c-send" data-i18n="l_send">Enviar mensaje</button>
+     <span class="status" id="c-status" role="status" aria-live="polite"></span>
+    </div>
+   </form>
+
+   <aside class="preview" data-i18n-aria="pv_aria" aria-label="Vista previa del correo">
+    <div class="preview-head" data-i18n="pv_title">Así nos llega</div>
+    <div class="preview-meta">
+     <div><span data-i18n="pv_from">De</span><span id="pv-from"></span></div>
+     <div><span data-i18n="pv_to">Para</span><span>contacto@digitalmonster.cl</span></div>
+     <div><span data-i18n="pv_subject">Asunto</span><strong id="pv-subject"></strong></div>
+    </div>
+    <div class="preview-body">
+     <div id="pv-lines"></div>
+     <p id="pv-body"></p>
+    </div>
+   </aside>
+  </div>
+
+  <a class="forja" href="https://forja.digitalmonster.cl" target="_blank" rel="noopener">
+   <span class="forja-tag" data-i18n="fj_tag">Herramienta de Digital Monster</span>
+   <span class="forja-name">Forja</span>
+   <span class="forja-text" data-i18n="fj_text">Es la plataforma con la que organizamos nuestros propios proyectos: ferias, fondos y convocatorias en Chile, fechas y entregas. La abrimos para que tú también le des forma a tu monstruo.</span>
+   <span class="forja-cta"><span data-i18n="fj_cta">Entrar a Forja</span> · forja.digitalmonster.cl →</span>
+  </a>
+
+  <p class="fine" data-i18n-html="ct_fine">Leemos todo lo que llega. Si nos cuentas un proyecto, sigue siendo tuyo hasta que firmemos algo juntos. Si prefieres tu propio correo, escríbenos directo a <span class="sel">contacto@digitalmonster.cl</span>.</p>
+ </div>
+</section>
+
+</main>
+
+<footer class="foot">
+ <div class="wrap foot-row">
+  <span data-i18n="foot_copy">© 2026 Digital Monster · Hecho en Chile</span>
+  <nav class="foot-links" aria-label="Redes">
+   <a href="https://forja.digitalmonster.cl" target="_blank" rel="noopener">Forja</a>
+   <a href="https://www.instagram.com/digimonsterslab/" target="_blank" rel="noopener">Instagram</a>
+   <a href="https://x.com/DigiMonstersLab" target="_blank" rel="noopener">X</a>
+   <a href="https://bsky.app/profile/digimonsterslab.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+   <a href="https://www.whatsapp.com/channel/0029VayEK3GGufItEz7sJK16" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+ </div>
+</footer>
+
+</div>
+<script src="/assets/sitio.js?v=2"></script>
 </body>
 </html>
